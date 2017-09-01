@@ -99,8 +99,10 @@ $(function  (argument) {
 	var gNear = "";
 	var gNear1 = "";
 
-	function updateNear(nerar,isImageBox){
+	var gaCount = 0;
 
+	function updateNear(nerar,isImageBox){
+		gaCount++;
 		if(isImageBox)
 			$(".recom1").hide();
 		else
@@ -150,6 +152,15 @@ $(function  (argument) {
 			}else{
 				$(".materialNear .tP").css({color:"white",background:nearMatP});
 			}
+
+
+		}
+
+		try{
+			if(typeof ga!="undefined" && gaCount>1)
+				ga('send', 'event', 'Material'+(isImageBox?"Image":"Color"), 'Update', (isImageBox?nearMatP1:nearMatP)+"|"+(isImageBox?nearMatA1:nearMatA));
+		}catch(e){
+
 		}
 		
 		if(isImageBox){
