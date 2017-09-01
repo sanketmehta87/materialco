@@ -1,0 +1,59 @@
+@primary: #3f51b5;
+@primaryLow: #c5cae9;
+@primaryHigh: #303f9f;
+
+@accent: #ff4081;
+@accentLow: #ff80ab;
+@accentHigh: #f938ab;
+
+@accentTint: #FF669A;
+@accentShade: #E73677;
+
+.preview .status{
+    background: @primaryHigh;
+}
+.preview .mainbar{
+    background: @primary;   
+}
+.preview .title{
+    color: @accentLow;
+}
+.preview .titleV{
+    border-bottom: 2px solid;
+    border-color:@accentLow;
+}
+.preview .desc{
+    color: @primaryLow;
+    border-bottom: 1px solid;
+    border-color:@primaryLow;
+}
+.preview .add{
+    background:@accent;
+    color: white;
+    box-shadow: 0px 1px 0px @accentTint inset, 0px -1px 0px @accentShade inset, 0px 0px 5px rgba(0,0,0,0.5);
+}
+.preview header{
+    background: @primaryHigh;
+}
+.preview .taber{
+    background:@primaryLow;
+}
+.preview tab{
+    border-top:3px solid @primaryLow;
+}
+.preview p{
+    color: @primaryLow;
+}
+.preview tab.active{
+    border-top:3px solid @accent;
+    color:black;
+    font-weight:bold;
+}
+.tinder div.titles{
+    color:black;
+    background-color: @accent;
+    border-radius: 3px 3px 0 0;
+}
+.preview header button{
+    background-color: @accent;
+}
