@@ -1,5 +1,5 @@
 .content{
-	margin-top:70px;
+	margin-top:45px;
 }
 body {
     color: #ffffff;
@@ -15,6 +15,9 @@ body {
 .nav-link.active {
     border-bottom: 2px solid #324dda;
     color: yellow;
+}
+.nav-link{
+    line-height: 22px;
 }
 div#myTabContent {
     border-top: 1px solid #324dda;
