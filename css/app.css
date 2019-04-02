@@ -1,5 +1,6 @@
 .content{
 	margin-top:45px;
+    height: 100%;
 }
 body {
     color: #ffffff;
@@ -21,6 +22,10 @@ body {
 }
 div#myTabContent {
     border-top: 1px solid #324dda;
+    height: 100%;
+}
+.tab-content>.active{
+    height: 100%;
 }
 .colorPicker {
     background: #555c63 !important;
@@ -273,3 +278,1375 @@ li.dColAlone.active:before {
 .modal-header{
     border-bottom: 1px solid #494d52;
 }
+.mainFonts {
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+}
+.sectionLeft {
+    display: block;
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+.dropDownParent{
+    display: none;
+}
+.sectionLeft .dropDownLeft #dropdownMenuButton {
+    background: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    margin-left: 50% !important;
+    transform: translateX(-50%);
+    margin-top: 30px;
+}
+.checkBoxParent {
+    width: 100%;
+    height: 140px;
+    padding-top: 0;
+    overflow-y: scroll;
+    padding-bottom: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+    border-radius: 3px;
+}
+.checkBoxParent .input-group.mb-3.checkBoxLeft {
+    height: 30px;
+    margin-top: 1px;
+}
+.checkContent {
+    display: inline-flex;
+    margin-left: 25px;
+}
+.checkBoxParent label {
+    margin-left: 6px;
+    cursor: pointer;
+}
+.fontsParent1,.fontsParent2{
+    display: block;
+    width: 100%;
+    height: 28%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+    border-radius: 3px;
+}
+.fontName, .checkBoxParent >div {
+    padding: 1.5%;
+    background: #252a2f;
+    margin: 1px 0;
+    border-radius: 3px;
+}
+.fontName input#inlineRadio1 {
+    margin-left: 10px;
+    margin-top: 9px;
+
+}
+.fontName .form-check-inline .form-check-label {
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.fontName .custom-control-label{
+    cursor: pointer;
+}
+.sectionRight {
+    display: block;
+    width: 80%;
+    height: 100%;
+    margin-left: 2px;
+    padding: 1%;
+    position: relative;
+}
+.mainSection {
+    display: block;
+    height: 90%;
+    margin-top: 2%;
+}
+.footerSection {
+    display: block;
+    height: 10%;
+    padding-top: 10px;
+}
+.footerSection:before{
+    content: "\25c4";
+}
+.footerSection:after{
+    content: "\25ba";
+}
+.titleSec{
+    font-size: 35px;
+    color: #fff230;
+    outline: none;
+}
+.descriptionSec{
+    font-size: 20px;
+    outline: none;
+}
+.preview .desc{
+    outline: none;
+}
+.PrimaryFont,.secondaryFont, .filterClass  {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-top: 7%;
+    position: relative;
+}
+
+.currentPfont, .currentSfont, .FilterName{
+    position: absolute;
+    display: block;
+    height: 30px;
+    left: 45%;
+    top: 0;
+    color: aquamarine;
+}
+.FilterName{
+    left: 18%;
+}
+html {
+    overflow: scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+.checkBoxParent >div {
+    padding-bottom: 1.5%;
+}
+.sectionRight .mainSlider {
+    width: 300%;
+    height: 90%;
+    display: inline-flex;
+    margin-top: 3.5%;
+    list-style-type: none;
+    overflow: hidden;
+}
+.plusBtn{
+    border: 1px solid;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    position: absolute;
+    right: 0%;
+    transform: translateY(-50%);
+    border-radius: 8px;
+    background: white;
+    background-image: url('../img/minus.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*.sliderFont{
+   height: min-content ;
+}*/
+.sectionRight .unslider{
+    height: 100%;
+}
+.sectionRight .unslider-nav {
+    display: none;
+}
+.filterHidden {
+    height: 0;
+    transition: all 0.3s;
+}
+.filterShow{
+    height: 140px;
+    transition: all 0.3s;
+}
+.plusFilter{
+    height: 140px;
+    transition: all 0.3s;
+}
+.minusFilter{
+    height: 200px;
+    transition: all 0.3s;
+}
+.new-tab {
+    position: relative;
+}   
+.new-tab:after {
+    content: " •";
+    color: red;
+    font-size: 20px;
+    font-family: arial;
+    position: absolute;
+    top: 9px;
+    right: 0;
+    animation: newTabAnimation 0.5s linear infinite alternate;
+}
+@keyframes newTabAnimation {
+  from {color: red;}
+  to {color: #343a40;}
+}
+@-webkit-keyframes newTabAnimation {
+  from {color: red;}
+  to {color: #343a40;}
+}
+.sideMenutab {
+    background: #314dda;
+    width: 14px;
+    height: 36px;
+    position: absolute;
+    top: 0px;
+    right: -15px;
+    border-radius: 0 0 11px 0;
+    border-left: 3px solid #fef815;
+    z-index: 1;
+    cursor: pointer;
+}
+.showMenu{
+    margin-left: 0;
+    transition: all 0.3s;
+}
+.hideMenu{
+    margin-left: -20%;
+    transition: all 0.3s;
+}
+ul.secondTabUl {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 35%;
+}
+.mainFonts .unslider-arrow{
+    top: 1.8vw;
+}
+li.parts {
+    width: 31%;
+    margin: 10px !important;
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden !important;
+    border-radius: 7px;
+}
+.secondTab.preview .title.first {
+    position: absolute;
+    margin-top: 4%;
+    font-size: 15px;
+    outline: none;
+}
+.secondTab.preview .titleV {
+    background: transparent;
+    border-width: 0 0 2px 0;
+    font-size: 2vw;
+    font-family: 'robotolight';
+    padding: 0px 0 2px 0;
+    color: white;
+    width: 100%;
+    margin-top: 11%;
+    outline: none;
+}
+.secondTab.preview .add {
+    width: 3.5vw;
+    height: 3.5vw;
+    position: absolute;
+    font-size: 2.2vw;
+    text-align: center;
+    right: 1.5vw;
+    bottom: 10%;
+    /* line-height: 1vw; */
+    border-radius: 50%;
+    border: 0px;
+    vertical-align: middle;
+}
+.secondTab input.desc.secondDesc{
+    font-size: 1vw;
+}
+.secondTab.preview .tinderBox {
+    width: 200%;
+    height: 100px;
+    margin-left: -50%;
+    position: absolute;
+    top: 10%;
+}
+.secondTab.preview header{
+    outline: none;
+    font-size: 1.3vw;
+}
+.secondTab.preview p.padBox1 {
+    bottom: 0;
+    position: absolute;
+    font-size: 0.9vw;
+    padding: 1.2vw;
+    margin: 0;
+    line-height: 1vw;
+    outline: none;
+}
+.secondTab button.square.secondDesc {
+    font-size: 0.9vw;
+    padding: 0.3vw 0.8vw;
+}
+.secondTab.preview p.padBox2 {
+    font-size: 0.9vw;
+    padding: 4%;
+    outline: none;
+    line-height: 1vw;
+}
+.secondTab .tinder .titles {
+    font-size: 1vw;
+    border-radius: 0.4vw 0.4vw 0 0;
+    padding: 0.4vw 0.9vw;
+}
+.secondTab .tinder {
+    border-radius: 0.4vw;
+    height: 7.5vw;
+}
+.secondTab p+.taber span.secondDesc {
+    font-size: 0.9vw;
+    padding-top: 0.3vw;
+}
+.parts .padBox3{
+    padding:4%;     
+}
+.secondTab.preview .taber {
+    position: absolute;
+    width: 100%;
+    height: 3vw;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8vw;
+}
+.taber span {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+}
+.mapButtons {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 50%;
+    padding:4%; 
+}
+.mapImage {
+    border: 1px solid;
+    position: relative;
+    width: 100%;
+    padding-bottom: 40%;
+    background-image: url('../img/map-icon.jpg');
+    background-size: 100%;
+    background-position: center;
+}
+.firstRow {
+    width: 100%;
+    height: 40%;
+    display: inline-flex;
+}
+.first1 {
+    position: relative;
+    width: 45%;
+    height: 100%;
+    background: white;
+    padding: 1%;
+    display: inline-flex;
+    border-radius: 5px;
+}
+.firstRow .toText {
+    width: 10%;
+    height: 100%;
+    font-size: 0.8vw;
+    padding: 1%;
+    line-height: 2vw;
+    text-align: center;
+}
+.first2 {
+    position: relative;
+    width: 45%;
+    height: 100%;
+    background: white;
+    padding: 1%;
+    display: inline-flex;
+    border-radius: 8px;
+}
+.secondRow {
+    width: 100%;
+    height: 40%;
+    margin-top: 2%;
+}
+.first3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 1%;
+    display: inline-flex;
+    border-radius: 8px;
+    
+    border-radius: 5px;
+}
+.mapButtons .first3 .icon1 {
+    width: 8%;
+    height: 100%;
+    background-image: url(../img/calender.png);
+    background-position: center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+}
+.mapButtons .first3 .srcText {
+    text-align: left;
+    color: gray;
+    width: 78%;
+    font-size: 0.8vw;
+    line-height: 2.2vw;
+}
+.mapButtons .first3 .icon2 {
+    width: 10.5%;
+    height: 100%;
+    background-image: url(../img/downArrow.png);
+    background-position: center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.mapButtons >div .icon1 {
+    width: 19%;
+    height: 100%;
+    background-image: url(../img/location.png);
+    background-position: center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+}
+.mapButtons >div .srcText {
+    text-align: left;
+    color: gray;
+    width: 60%;
+    font-size: 0.8vw;
+    line-height: 1.9vw;
+}
+.mapButtons >div .icon2 {
+    width: 23%;
+    height: 100%;
+    background-image: url(../img/downArrow.png);
+    background-position: center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+}
+.mapButtons >div .Btn1 {
+    width: 100%;
+    text-align: right;
+    height: 100%;
+}
+.thirdRow {
+    height: 32px;
+    margin-top: 5px;
+}
+.signInBtn {
+    width: 50%;
+    height: 100%;
+    height: 1;
+    z-index: 2;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.signInBtn .rounded {
+    position: absolute;
+    width: 100%;
+    height: 2.5vw;
+    padding: 0;
+    color: black;
+    border: 0px;
+    margin-top: 2%;
+    font-size: 1vw;
+    border-radius: 3vw !important;
+    outline: none;
+}
+.preview .newBtns{
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2)
+}
+.parentClass {
+    width: 100%;
+    height: 89%;
+}
+.loginClass {
+    position: relative;
+    width: 100%;
+    height: 83%;
+    padding: 4%;
+}
+input.uName.titleV, input.uPass.titleV{
+    font-size: 15px !important;
+    margin-top: 5% !important;
+}
+button.logninBtn {
+    border: 0px;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2.5vw;
+    padding: 0;
+    color: black;
+    border: 0px;
+    margin: 5% 50%;
+    font-size: 1vw;
+    border-radius: 3vw !important;
+    outline: none;
+
+}
+span.forgotClass{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1px;
+    font-size: 0.7vw;
+}
+.taber .parentText {
+    top: 14%;
+    width: 100%;
+    position: relative;
+    height: 70%;
+    display: block;
+    text-align: center;
+    line-height: 2vw;
+}
+span.regHere {
+    margin-top: -2px;
+    width: initial;
+    font-weight: bold;
+    color: black;
+}
+.profileClass {
+    width: 100%;
+    height: 64%;
+    position: relative;;
+}
+.backBlend {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 47%;
+}
+.backBlend img {
+    width: 100%;
+    margin-top: -25%;
+}
+.backBlend:after {
+    width: 100%;
+    height: 100%;
+    background: black;
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    opacity: 0.5;
+}
+.divSlant {
+    width: 110%;
+    height: 75%;
+    background: white;
+    position: absolute;
+    top: 64%;
+    transform: rotate(-14deg);
+}
+.profileAvtar {
+    width: 22%;
+    height: 0;
+    padding-bottom: 22%;
+    position: absolute;
+    top: 33%;
+    left: 37%;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+.profileAvtar img{
+    width: 100%;
+    border-radius: 50%;
+}
+.profileClass .badge{
+    position: absolute;
+    width: 20%;
+    height: 43%;
+    bottom: 0;
+    right: 6%;
+    display: block !important;
+    background-color: black;
+    -webkit-mask: url(../img/badge-img.svg);
+    -webkit-mask-position: center;
+    -webkit-mask-size: 70%;
+    -webkit-mask-repeat: no-repeat;
+}
+.profileClass .badge img{
+    width: 100%;
+}
+.contactClass {
+    position: relative;
+    width: 100%;
+    height: 37%;
+    display: inline-flex;
+    background-color: white;
+}
+.iconImg {
+    display: block;
+    width: 20%;
+    background-color: black;
+    -webkit-mask: url(../img/user.svg);
+    -webkit-mask-position: top;
+    -webkit-mask-size: 50%;
+    -webkit-mask-repeat: no-repeat;
+}
+.dpInfo {
+    display: block;
+    width: 48%;
+    color: black;
+}
+span.dpName {
+        font-size: 16px;
+    display: block;
+}
+span.dpNum {
+    font-size: 11px;
+}
+.wallet {
+    display: block;
+    width: 30%;
+    position: relative;
+    color: black;
+}
+.walletDiv {
+    position: absolute;
+    width: 93%;
+    /* height: 52%; */
+    border: 1px solid;
+    /* left: 50%; */
+    top: 0;
+    /* transform: translate(-50%,-50%); */
+    /* border-radius: 3%; */
+    text-align: center;
+    margin-top: 4%;
+}
+span.walletText {
+    font-size: 12px;
+    line-height: 26px;
+}
+.charecterSection {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0% 3% 0% 3%
+}
+.primaryGlif {
+    display: block;
+    width: 100%;
+    height: 40%;
+}
+.secondaryGlif {
+    display: block;
+    width: 100%;
+    height: 40%;
+}
+.glif {
+    display: block;
+    width: 100%;
+    font-size: 150px;
+}
+.charSec {
+    display: block;
+    width: 100%;
+    word-break: break-all;
+    font-size: 21px;
+    letter-spacing: 9px;
+}
+.priTitle, .secTitle {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+@media screen and (max-width:560px){
+    .tint-trey{
+        width: 55% !important;
+    }
+    .tint-boxes {
+        width: 45% !important;
+    }
+    .tint-trey div{
+        line-height: 19px !important;
+    }
+    .mainFonts {
+        display: inline-flex;
+        width: 420px;
+        height: 100%;
+    }
+    .nav {
+        height: 37px !important;
+        font-size: 19px !important;
+        line-height: 30px !important;
+        padding: 0 !important; 
+    }
+    .preview .title.first {
+        font-size: 5vw;
+    }
+    .sectionLeft{
+        display: none;
+    }
+    .dropDownParent{
+        display: block;
+    }
+    .sectionRight {
+        display: block;
+        width: 100%;
+        margin-left: 2px;
+        padding: 1%;
+        position: relative;
+        margin-top: 1%;
+    }   
+    .dropDownParent {
+        display: inline-flex;
+        width: 100%;
+        height: 8%;
+        margin-top: 10%;
+    }
+    .dropDownParent .dropdown.primaryDrop, .dropleft, .dropright, .dropup {
+        width: 50% !important;
+        height: 100%;
+    }
+    .dropDownParent .dropdown.secondaryDrop, .dropleft, .dropright, .dropup {
+        width: 50% !important;
+        height: 100%;
+        margin-left: 1%;
+    }
+    .dropDownParent .dropdown button#dropdownMenuButton{
+        height: 100%;
+        width: 100%;
+        font-size: 20px;
+    }
+    .fifthTab .band p{
+        padding-right: 9% !important ;
+    }
+    .moreText {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 6vw !important;
+        line-height: 8vw !important;
+    }
+    .dropdown-menu.show {
+        height: 150px;
+        overflow-y: scroll;
+    }
+    .sectionRight .unslider {
+        height: 100%;
+        width: 100%;
+    }
+    .descriptionSec {
+        font-size: 20px;
+        outline: none;
+        text-align: justify;
+        margin-left: 1%;
+        padding: 1%;
+    }  
+    ul.secondTabUl {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .secondTab ul >li {
+        width: 97% !important;
+        height: 300px !important;
+        margin: 4% 1% !important;
+    }
+    .preview .status{
+        font-size: 3.5vw !important;
+        line-height: 4.5vw;
+        height: 30px !important;
+    }
+    input.uName.titleV, input.uPass.titleV{
+        font-size: 4vw !important;
+    }
+    .secondTab.preview .title.first {
+        font-size: 23px;
+    }
+    .secondTab.preview .titleV {
+        font-size: 4.5vw;
+        margin-top: 15%;
+    }
+    .secondTab input.desc.secondDesc {
+        font-size: 3.5vw;
+    }
+    .secondTab.preview header{
+        font-size: 6vw;
+    }
+    .secondTab.preview p.padBox2 {
+        font-size: 3.8vw;
+        line-height: 4.5vw;
+    }
+
+    button.logninBtn{
+        height: 7vw;
+        font-size: 3.5vw;
+        border-radius: 4vw !important;
+    }
+    span.forgotClass {
+        font-size: 3vw;
+        margin-top: -2%;
+    }
+    .secondTab.preview .taber{
+        height: 6vw;
+        font-size: 3vw;
+    }
+    .secondTab p+.taber span.secondDesc{
+        font-size: 3.5vw;
+    }
+    .secondTab p+.taber1 span.secondDesc{
+        font-size: 3.5vw;
+        line-height: 4vw;
+    }
+    .secondTab.preview .taber1{
+        height: 8vw;
+    }
+    .secondTab.preview p.padBox1{
+        bottom:0%;
+        font-size: 4vw;
+        padding: 4vw;
+        line-height: 5vw;
+    }
+    .secondTab .tinder{
+        border-radius: 1.5vw;
+        height: 21vw;
+    }
+    .secondTab .tinder .titles{
+        font-size: 4vw;
+        border-radius: 1.5vw 1.5vw 0 0;
+        padding: 1.5vw 1.8vw;
+    }
+    .taber .parentText{
+        line-height: 4vw;
+    }
+    span.dpName {
+        font-size: 20px;
+        display: block;
+    }
+    .secondTab.preview .add{
+        width: 10.5vw;
+        height: 10.5vw;
+        font-size: 7vw;
+        right: 9.5vw;
+        bottom: 16%;
+        line-height: 3vw;
+    }
+    .secondTab button.square.secondDesc{
+        border-radius: 2vw;
+        font-size: 4.5vw;
+        padding: 1vw 4vw;
+    }
+    span.dpNum {
+        font-size: 15px;
+    }
+    span.walletText {
+        font-size: 15px;
+        line-height: 26px;
+    }
+    .sectionRight .mainSlider {
+        width: 300%;
+        height: 90%;
+        display: inline-flex;
+        list-style-type: none;
+        overflow: hidden;
+        padding-left: 0;
+    }
+    .unslider-arrow {
+        position: absolute;
+        top: 2%;
+        z-index: 2;
+        cursor: pointer;
+        font-size: 18px
+    }
+    .charecterSection {
+        display: inline-grid;
+        height: auto;
+        width: 100%;
+    }
+    .primaryGlif {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-bottom: 10%;
+        margin-bottom: 5%;
+    }
+    .secondaryGlif {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .priTitle, .secTitle {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .fourthTab .c-header{
+        padding: 1.5em 0.9em !important;
+    }
+    .mapButtons >div .srcText,.mapButtons .first3 .srcText{
+        font-size: 3.5vw;
+        line-height: 6.5vw;
+    }
+    .signInBtn .rounded{
+        height: 7.5vw;
+        font-size: 3.5vw;
+        border-radius: 4vw !important;
+    }
+    .glif {
+        display: block;
+        width: 100%;
+        height: 86px;
+        font-size: 75px;
+    }
+    .charSec {
+        display: block;
+        width: 100%;
+        height: 58%;
+        word-break: break-all;
+        font-size: 17.5px;
+        letter-spacing: 3px;
+        margin-top: 10px;
+    }
+}
+
+
+.firstTab .title {
+    font-size: 4.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: 10px double black;
+}
+
+.firstTab .date {
+    font-size:  1em ;
+    text-align: center;
+    width: 280px;
+    margin: auto;
+    margin-top: 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.firstTab .columns {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 10px;
+    border-top: 3px solid black;
+}
+
+.firstTab .columns > div {
+    flex-grow: 0;
+    flex-basis: 30%;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.firstTab .columns div p {
+    text-align: left;
+}
+
+.firstTab h1 {
+    font-size: 2.5em;
+}
+
+.firstTab img {
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    image-rendering: pixelated;
+}
+
+.firstTab .footer {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 5px 0;
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+}
+
+@media only screen and (max-width: 1024px) {
+    .firstTab .columns {
+        flex-direction: column;
+    }
+
+    .firstTab .columns > div {
+        padding: 0 10px;
+    }
+}
+
+
+.fourthTab .c-posts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: top;
+  padding: 5%;
+}
+.fourthTab .c-posts__item {
+  flex-grow: 1;
+  padding-bottom: 2em;
+}
+.fourthTab .c-posts__item:first-child {
+  flex-grow: 2;
+}
+
+@media all and (min-width: 600px) {
+  .fourthTab .c-posts__item {
+    flex-basis: 50%;
+    padding-right: 5%;
+  }
+  .fourthTab .c-posts__item:first-child {
+    flex-basis: 100%;
+  }
+}
+@media all and (min-width: 1000px) {
+  .fourthTab .c-posts__item {
+    flex-basis: 33%;
+  }
+  .fourthTab .c-posts__item:first-child {
+    flex-basis: 66%;
+  }
+}
+@media all and (min-width: 1400px) {
+  .fourthTab .c-posts__item {
+    flex-basis: 25%;
+  }
+  .fourthTab .c-posts__item:first-child {
+    flex-basis: 50%;
+  }
+}
+/* Other Non-Flexbox Related Styles */
+.fourthTab .c-header,
+.fourthTab .c-footer {
+  background: #EDD382;
+  text-align: center;
+  padding: 2em;
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+.fourthTab .c-header h1, .fourthTab .c-header h2, .fourthTab .c-header p,
+.fourthTab .c-footer h1,
+.fourthTab .c-footer h2,
+.fourthTab .c-footer p {
+  max-width: 40em;
+  margin: 0 auto;
+}
+.fourthTab .c-header h1:not(:last-child), .fourthTab .c-header h2:not(:last-child), .fourthTab .c-header p:not(:last-child),
+.fourthTab .c-footer h1:not(:last-child),
+.fourthTab .c-footer h2:not(:last-child),
+.fourthTab .c-footer p:not(:last-child) {
+  margin-bottom: 1em;
+}
+.fourthTab .c-header h1,
+.fourthTab .c-footer h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.fourthTab .c-header a,
+.fourthTab .c-footer a {
+  color: #000;
+}
+
+.fourthTab .c-footer p {
+  font-weight: 300;
+}
+
+.fourthTab  * {
+  box-sizing: border-box;
+}
+
+
+.fourthTab h1 {
+  font-size: calc(130% + 1vw);
+  font-weight: normal;
+}
+
+.fourthTab h2 {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.fourthTab a {
+  color: #0F5257;
+}
+
+.fourthTab .c-btn {
+  color: #000;
+  display: inline-block;
+  border-bottom: 4px solid #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  letter-spacing: .1em;
+  padding: .3em 0;
+  position: relative;
+  transition: .2s all;
+}
+.fourthTab .c-btn:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #FF521B;
+  height: 0%;
+  transition: .2s all;
+  left: 0;
+  z-index: -10;
+}
+.fourthTab .c-btn:hover {
+  padding-left: .75em;
+  padding-right: .75em;
+  color: #fff;
+  border-color: #FF521B;
+}
+.fourthTab .c-btn:hover:before {
+  height: 100%;
+}
+
+
+.fifthTab .l-site {
+  margin: 0 auto;
+  max-width: 1600px;
+  position: relative;
+  z-index: 1;
+}
+.fifthTab .l-site:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: block;
+  background: #3a4043;
+  z-index: 1;
+}
+
+.fifthTab .l-page {
+  position: relative;
+  margin-left: 240px;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 1px 0 25px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.fifthTab .l-nav {
+  position: absolute;
+  width: 240px;
+  display: block;
+  background: #3a4043;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.fifthTab .band h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  font-size: 32px;
+}
+.fifthTab .band p {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  padding-right: 6%;
+}
+
+.fifthTab .band-container {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-height: 55vh;
+  max-width: 960px;
+  display: table;
+  position: relative;
+  padding: 0 3em;
+}
+.moreText {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    background: red;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 2.2vw;
+    line-height: 2.2vw;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.fifthTab .band-inner {
+ /* display: table-cell;*/
+  vertical-align: middle;
+  padding: 4em 0 3em;
+}
+
+.fifthTab .band-a {
+  background: #69D2E7;
+}
+
+.fifthTab .band-b {
+  background: #F9D423;
+}
+
+.fifthTab .band-c {
+  background: #F38630;
+}
+
+.fifthTab .band-d {
+  background: #FF4E50;
+}
+
+.fifthTab .nav {
+  width: 180px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 30px;
+  overflow: auto;
+}
+.fifthTab .nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fifthTab .nav li {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+}
+.fifthTab .nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  padding: 10px 0;
+}
+.fifthTab .nav .nav-primary {
+  opacity: 1;
+}
+.fifthTab .nav .nav-primary:hover {
+  opacity: 0.7;
+}
+.fifthTab .nav .nav-secondary {
+  opacity: 0.4;
+}
+.fifthTab .nav .nav-secondary:hover {
+  opacity: 0.7;
+}
+
+.fifthTab .menu {
+  display: none;
+  position: fixed;
+  top: 25px;
+  left: 1.5em;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+.fifthTab .menu:hover .menu-hamburger:before,
+.fifthTab .menu:hover .menu-hamburger:after {
+  width: 24px;
+}
+.fifthTab .menu.is-active .menu-hamburger {
+  background: none;
+}
+.fifthTab .menu.is-active .menu-hamburger:before,
+.fifthTab .menu.is-active .menu-hamburger:after {
+  top: 0;
+  width: 24px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.fifthTab .menu.is-active .menu-hamburger:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.fifthTab .menu.is-active .menu-hamburger:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.fifthTab .menu-hamburger {
+  position: relative;
+  width: 24px;
+  height: 4px;
+  margin: 10px 0;
+  background: #fff;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fifthTab .menu-hamburger:before, .menu-hamburger:after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fifthTab .menu-hamburger:before {
+  top: -8px;
+  left: 0;
+  width: 22px;
+}
+.fifthTab .menu-hamburger:after {
+  top: 8px;
+  width: 16px;
+  left: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .fifthTab .menu {
+    display: block;
+  }
+
+  .fifthTab .l-site.is-open {
+    overflow: hidden;
+  }
+  .fifthTab .l-site.is-open .l-page {
+    -webkit-transform: translateX(240px);
+    -moz-transform: translateX(240px);
+    -ms-transform: translateX(240px);
+    -o-transform: translateX(240px);
+    transform: translateX(240px);
+  }
+
+  .fifthTab .l-page {
+    margin-left: 0;
+    z-index: 3;
+  }
+
+  .l-nav {
+    z-index: 2;
+  }
+
+  .fifthTab .band-container {
+    padding: 0 1.5em;
+  }
+}
+
+

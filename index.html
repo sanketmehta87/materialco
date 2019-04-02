@@ -16,7 +16,7 @@
 	<meta content="http://materialmixer.co/res/banner.png" property="og:image">
 	<meta content="en_US" property="og:locale">
 	<meta content="Material mixer tool, allows you to mix match primary and secondary color of material design color palette." property="og:description">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700" rel="stylesheet">
 	<meta content="#556270" name="theme-color">
 	<link href="/font/css/open-iconic.css" rel="stylesheet">
@@ -26,7 +26,6 @@
 	         less = {
 	           env: "development"
 	         };
-	         
 	</script>
 	<link href="res/styles.less" rel="stylesheet/less" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js">
@@ -41,6 +40,8 @@
 	</script>
 	<script src="dist/colorjoe.js" type="text/javascript">
 	</script>
+	<script src="https://apis.google.com/js/api.js"></script>
+	<script src="lib/webfont.js"></script>
 	<script src="dist/nearest.js" type="text/javascript">
 	</script>
 	<script src="dist/dropzone.js" type="text/javascript">
@@ -48,14 +49,28 @@
 	<script src="dist/color-thief.min.js" type="text/javascript">
 	</script>
 	<script src="dist/main-app.js" type="text/javascript">
-	</script>
+	</script> 
 	<script data-main="app" src="lib/unslider.js">
 	</script>
 	<script data-main="app" src="lib/require.js">
 	</script>
 	<link href="res/style.css" rel="stylesheet">
-	<link href="lib/unslider.css" rel="stylesheet">
+	<link href="lib/unslider.css" rel="stylesheet"><!-- 
+	<script src="lib/simplebar.js"></script>
+	<link href="css/simplebar.css" rel="stylesheet"> -->
+
 	<script type="text/javascript">
+				requirejs.config({
+				    baseUrl: 'lib',
+				    paths: {
+				        app: '../app',
+
+				    }
+				});
+
+				// Start loading the main app file. Put all of
+				// your application logic in there.
+				requirejs(['app/main']);
 	           jQuery(document).ready(function($) {
 	               var slider = $('.slider').unslider();
 	               slider.on('unslider.change', function(event, index, slide) {
@@ -88,7 +103,12 @@
 	</nav>
 	<div class="container-fluid content">
 		<nav class="nav justify-content-center" id="myTab" role="tablist">
-			<a aria-controls="mixer" aria-expanded="true" class="nav-item nav-link active" data-toggle="tab" href="#mixer" id="mixer-tab" role="tab">Mixer</a> <a aria-controls="color" class="nav-item nav-link" data-toggle="tab" href="#color" id="color-tab" role="tab">Color</a> <a aria-controls="image" class=" nav-item nav-link" data-toggle="tab" href="#image" id="image-tab" role="tab">Image</a>
+			<a aria-controls="mixer" aria-expanded="true" class="nav-item nav-link active" data-toggle="tab" href="#mixer" id="mixer-tab" role="tab">Mixer</a> 
+			<a aria-controls="Fonts" class=" nav-item nav-link new-tab" data-toggle="tab" href="#Fonts" 
+			onclick="downFonts(true)" id="Fonts-tab" role="tab">Google fonts</a>
+			<a aria-controls="color" class="nav-item nav-link" data-toggle="tab" href="#color" id="color-tab" role="tab">Color</a> 
+			<a aria-controls="image" class=" nav-item nav-link" data-toggle="tab" href="#image" id="image-tab" role="tab">Image</a>
+			
 		</nav>
 		<div class="tab-content" id="myTabContent">
 			<div aria-labelledby="mixer-tab" class="tab-pane fade show active" id="mixer" role="tabpanel">
@@ -118,19 +138,22 @@
 						</div>
 					</div>
 					<div class="preview">
-						<div class="status">
+						<div class="status primaryHighback">
 							12:30
 						</div>
-						<div class="mainbar slider">
+						<div class="mainbar slider primaryback">
 							<ul>
-								<li class="padBox"><label class="title first">Title</label> <input class="titleV" readonly type="text" value="Material Mixer"> <input class="desc" readonly type="text" value="Description"> <button class="add" value="+">+</button></li>
+								<li class="padBox">
+									<label class="title first">Title</label> <input class="titleV" readonly type="text" value="Material Mixer"> <input class="desc" readonly type="text" value="Description"> <button class="add" value="+">+</button></li>
 								<li>
 									<header>
 										Title here. <button class="square">Edit</button>
 									</header>
 									<p class="padBox">Lorem Ipsum. Simplify your workflow without changing the way you work.</p>
-									<div class="taber">
-										Tab1 Tab2 Tab3
+									<div class="taber primaryLowback">
+										<span>Tab1</span>
+										<span>Tab2</span>
+										<span class="active1">Tab3</span>
 									</div>
 								</li>
 								<li class="tSlide">
@@ -179,7 +202,7 @@
 				</div>
 			</div>
 			<div aria-labelledby="color-tab" class="tab-pane fade" id="color" role="tabpanel">
-				<div class="rgbPane" id="rgbPane"></div>
+				<div class="colorPicker" id="rgbPane"></div>
 				<div class="results well">
 					<div class="materialNear">
 						Nearest Material Colors<br>
@@ -238,6 +261,362 @@
 					</div>
 				</div>
 			</div>
+			<div aria-labelledby="Fonts-tab" class="tab-pane fade" id="Fonts" role="tabpanel">
+				<div class="mainFonts">
+					<div class="sectionLeft">
+						<div class="PrimaryFont">
+							Primary Font:
+							<div class="currentPfont"></div>
+						</div>
+						<div class="fontsParent1" onscroll="scrollCall(this)" data-simplebar>
+							
+						</div><div class="secondaryFont">
+							Secondary Font:
+							<div class="currentSfont"></div>
+						</div>
+						<div class="fontsParent2" onscroll="scrollCall(this)" data-simplebar>
+							
+						</div>
+						<div class="filterClass">
+							Filter:
+							<div class="FilterName"></div>
+							<div class="plusBtn" onclick="displayFilters()"></div>
+						</div>
+						<div class="checkBoxParent" data-simplebar>
+						</div>
+						<div class="sideMenutab" onclick="displaySideMenu()"></div>
+					</div>
+					
+					<div class="sectionRight">
+						<div class="dropDownParent">
+							<div class="dropdown primaryDrop">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    <span class="dropPriText">Primary Fonts</span>
+								  </button>
+								  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+								  </div>
+								</div>
+								<div class="dropdown secondaryDrop">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								   <span class="dropSecText">Secondary Fonts</span> 
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								    
+								  </div>
+								</div>
+							</div>
+							<div class="sliderFont">
+							<ul class="mainSlider">
+							<li class="firstTab">
+								
+								<div class="mainSection">
+									<div class="title secondTitle">Good Times</div>
+										<div class="date secondDesc">Wednesday, April 18, 2018</div>
+
+										<div class="columns">
+											<div>
+												<h1 class="secondTitle">A landmark video game if there ever was one</h1>
+												<p class="secondDesc">Pac-Man, stylized as PAC-MAN, is an arcade game developed by Namco and first released in Japan in May 1980. It was created by Japanese video game designer Toru Iwatani. It was licensed for distribution in the United States by Midway Games and released
+													in October 1980. Immensely popular from its original release to the present day, Pac-Man is considered one of the classics of the medium, and an icon of 1980s popular culture. Upon its release, the game—and, subsequently, Pac-Man derivatives—became
+													a social phenomenon that yielded high sales of merchandise and inspired a legacy in other media, such as the Pac-Man animated television series and the top-ten Buckner and Garcia hit single "Pac-Man Fever". Pac-Man was popular in the 1980s and 1990s
+													and is still played in the 2010s.</p>
+												<p class="secondDesc">When Pac-Man was released, the most popular arcade video games were space shooters—in particular, Space Invaders and Asteroids. The most visible minority were sports games that were mostly derivatives of Pong. Pac-Man succeeded by creating a new genre.
+													Pac-Man is often credited with being a landmark in video game history and is among the most famous arcade games of all time. <!-- It is also one of the highest-grossing video games of all time, having generated more than $2.5 billion in quarters by the
+													1990s.</p>
+												<img src="https://static.codepen.io/assets/marketing/challenges/amd-pacman-jpg-603c12d2572aceb1bfbf7cb8e426160dfb4cce641bc01bfe7a42a7829fcbca41.jpg"> -->
+											</div>
+											<div>
+												<h1 class="secondTitle">Donkey Kong looms large over the video game world</h1>
+												<p class="secondDesc">Donkey Kong is a series of video games featuring the adventures of an ape-like character called Donkey Kong, conceived by Shigeru Miyamoto in 1981. The franchise mainly comprises two different game genres, plus spin-off titles of various genres.</p>
+												<img src="https://static.codepen.io/assets/marketing/challenges/donkey-kong-d03d25d82f1ef56f1d7f722965185af492e20e31ed3964f04b8cc7975b89d820.gif">
+												<p class="secondDesc">The games of the first genre are mostly single-screen platform/action puzzle types, featuring Donkey Kong as the opponent in an industrial construction setting. Donkey Kong first made his appearance in the 1981 arcade machine called Donkey Kong, in
+													which he faced Mario, now Nintendo's flagship character. This game was also the first appearance of Mario, pre-dating the well-known Super Mario Bros. by four years. In 1994, the series was revived as the Donkey Kong Country series, featuring Donkey
+													Kong and his clan as protagonists in their native jungle setting versus a variety of anthropomorphic enemies, usually against the Kremlings, a clan of crocodiles, and their leader King K. Rool. <!-- These are side-scrolling platform games. Titles outside
+													these two genres have included rhythm games (Donkey Konga), racing games (Diddy Kong Racing), and edutainment (Donkey Kong Jr. Math). --></p><!-- 
+												<p class="secondDesc">A hallmark of the Donkey Kong franchise is barrels, which the Kongs use as weapons, vehicles, furniture, and lodging. The Donkey Kong character is highly recognizable and very popular; the franchise has sold over 40 million units worldwide.</p> -->
+											</div>
+											<div>
+												<h1 class="secondTitle">The paperboy had one mission: deliver newspapers without crashing his bike!</h1>
+												<p class="secondDesc">Paperboy is a 1985 arcade game developed and published by Atari Games. The player takes the role of a paperboy who delivers a fictional newspaper called "The Daily Sun" along a suburban street on his bicycle. The game was ported to a wide range of video
+													game consoles and personal computers beginning in 1986. The arcade version of the game featured bike handlebars as the controller. A sequel for home computers and consoles, Paperboy 2, was released in 1991.</p>
+												<p class="secondDesc">After Paperboy was released in North American arcades in April 1985, the game was ported to video game consoles and home computers, starting in 1986. In some of these versions, the player could assume the role of a papergirl instead of a paperboy. <!--Paperboy
+													was ported to the BBC Micro and Acorn Electron by Andy Williams in 1986. Versions for the Amstrad CPC, Apple II, and TRS-80 Color Computer were also released in 1986. Elite Systems produced versions for the ZX Spectrum and the Commodore 64.  The ZX
+													Spectrum version had been released in the United Kingdom by October 1986, and the Commodore 64 version was published there by February 1987. Elite created versions for the Commodore 16 and Commodore Plus/4 later that year. --></p>
+												<img src="https://static.codepen.io/assets/marketing/challenges/paperboy-dd57aef56eb417345d9d1b785138acd6516c98e120d2372592a5a84e728c0c4a.png">
+											</div>
+										</div>
+								</div>
+							</li>
+							<li class="thirdTab">
+								<div class="charecterSection">
+									<div class="primaryGlif">
+										<div class="priTitle"> Primary Fonts</div>
+										<div class="glif">Rr
+										</div>
+										<div class="charSec">
+											ABCČĆDĐEFGHIJKLMNOPQRSŠTUVWXYZŽabcčćdđefghijklmnopqrsštuvwxyzžАБВГҐДЂЕЁЄЖЗЅИІЇЙЈКЛЉМНЊОПРСТЋУЎФХЦЧЏШЩЪЫЬЭЮЯабвгґдђеёєжзѕиіїйјклљмнњопрстћуўфхцчџшщъыьэюяΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωάΆέΈέΉίϊΐΊόΌύΰϋΎΫΏĂÂÊÔƠƯăâêôơư1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*
+										</div>
+									</div>
+									<div class="secondaryGlif">
+										<div class="secTitle"> Secondary Fonts</div>
+										<div class="glif">Rr
+										</div>
+										<div class="charSec">
+											ABCČĆDĐEFGHIJKLMNOPQRSŠTUVWXYZŽabcčćdđefghijklmnopqrsštuvwxyzžАБВГҐДЂЕЁЄЖЗЅИІЇЙЈКЛЉМНЊОПРСТЋУЎФХЦЧЏШЩЪЫЬЭЮЯабвгґдђеёєжзѕиіїйјклљмнњопрстћуўфхцчџшщъыьэюяΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωάΆέΈέΉίϊΐΊόΌύΰϋΎΫΏĂÂÊÔƠƯăâêôơư1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="fourthTab">
+								<header class="c-header secondTitle">
+								  <h1>Moon Lights</h1>
+								  <p>The history of early digital typefaces, though still fairly recent, has already proven that typeface design doesn’t need to reinvent itself because of technical constraints. One only has to look back over the last 20 years to discover work that forged a viable path.</p>
+								</header>
+								<section class="c-posts secondDesc">
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Hydrogen stratosphere control tower capacitor Saturn Lalande 21185. Control tower x-rays Luhman 16 Banard's Star engine lunar. Horizon engine capture Pluto Brahe sun continuum ion-drive control tower Proxima Centauri space-time booster. Core horizon subspace Voyager coordinates water. Contractors Banard's Star nozzle time Orion weightless Gemini extra-vehicular explore.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Mars NASA subspace crew warp Herschel stratosphere. Saturn sky zero-g stratosphere fuel cell Venus grounded crew yaw Ptolemy Challenger. Pioneer stratosphere Cassini Lalande 21185 Earth telemetry. Galileo uranium jumpsuit warp Hawking.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Challenger Voyager Sirius capsule Pioneer Kepler hyperspace launch. Singularity extra-vehicular circumnavigate burst. Procyon fuel cell asteroid subspace uranium Proxima Centauri prototype capsule.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Capsule crew Discovery ice spacecraft Pioneer gravity Picard. Lithium contractors meteor water core saucer white hole stars planet Picard Jupiter Skunkworks. Prototype clusters Voyager cosmos zero-g Pluto Skunkworks hatch. Circumnavigate core hyperspace motion comet Ptolemy.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Orbit warp atomic Buzz Lightyear. Uranium circumnavigate Halley Neptune nebula launch north Proxima Centauri engine.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Troposphere capacitor Newton Kepler. Jupiter ionosphere saucer Gemini Neptune core Alpha Centauri Venus comet Proxima Centauri Herschel. Banard's Star inertia laser contractors ion-drive fuel cell NASA. Panel solar-flare dwarf probe Sagan Sirius jetpack time laser. Columbia nebula horizon mesoshphere pulsar mission nuclear Sirius jetpack UFO.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>X-rays Orion capsule re-entry Mercury tank capture Mars control tower. Fusion Challenger physics flight Saturn . Warp countdown flare telemetry yaw rocket stars. Planet astronomy Venus reusable continuum inertia robotic re-entry booster Pioneer.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Solar crew hydrogen booster panel Europa array Saturn fusion Jupiter control tower singularity. Telemetry laser Venus wave capacitor gamma ray orbit lunar Uranus. Venus supernova Hawking ignite Mars Kirk Pluto.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								 <!--  <article class="c-posts__item">
+								    <h2 class="secondTitle ">Article Title Here</h2>
+								    <p>Dormant container star system subspace solar binary inverter hyperspace warp. Yaw LiDAR hydrogen container galaxy heliosphere Houston Skunkworks gravity weightless pulsar pitch. Stars volatile ice kryptonite extra-vehicular Cassini crew meteor Earth positron. Aurora singularity coordinates nozzle Skunkworks valve orbit Herschel.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article> -->
+								  <!-- <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Hubble nebula Europa Gemini Skunkworks subspace uranium extra-vehicular Galileo release planet Banard's Star. Pulsar stars Tyson prototype lunar explore Pioneer ion-drive mesoshphere.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article>
+								  <article class="c-posts__item">
+								    <h2 class="secondTitle">Article Title Here</h2>
+								    <p>Hydrogen stratosphere control tower capacitor Saturn Lalande 21185. Control tower x-rays Luhman 16 Banard's Star engine lunar. Horizon engine capture Pluto Brahe sun continuum ion-drive control tower Proxima Centauri space-time booster. Core horizon subspace Voyager coordinates water. Contractors Banard's Star nozzle time Orion weightless Gemini extra-vehicular explore.</p>
+								    <p><a href="#" class="c-btn">Read More</a></p>
+								  </article> -->
+								</section>
+							</li>
+							<li class="fifthTab">
+								<div class="l-sites">
+								  <div class="l-pages">
+								    <section class="band band-a status primaryHighback">
+								      <div class="band-container">
+								        <div class="band-inner">
+								          <h1 class="secondTitle">Lorem ipsum dolor</h1>
+								          <p class="secondDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta, tellus ut convallis luctus, lorem diam mattis arcu, eu consequat dui tortor eget lacus. Donec metus ligula, rutrum volutpat neque vel, porta tincidunt dui. Phasellus convallis tristique nunc. Integer nunc nunc, finibus a maximus at, viverra ut lorem. Etiam id velit risus. Vestibulum sapien mauris, fermentum nec luctus nec, fringilla non orci. Nullam blandit porta tincidunt. Donec placerat pretium dapibus. Ut interdum lorem eu nibh tincidunt vulputate. Aenean aliquam gravida quam, vel pulvinar odio. Pellentesque sed feugiat ligula. Quisque sagittis porttitor dui, ac lacinia mauris tempor vel. Donec rutrum lorem id nulla consequat vulputate.</p>
+								        </div>
+								         <div class='moreText newBtns add accentback'>></div>
+								      </div>
+								    </section>
+								    <section class="band band-b mainbar primaryback">
+								      <div class="band-container">
+								        <div class="band-inner">
+								          <h1 class="secondTitle">Proin sed aliquet</h1>
+								          <p class="secondDesc">Proin sed aliquet tellus. Etiam bibendum ligula in rhoncus imperdiet. Sed a sollicitudin dolor. Integer leo enim, tincidunt vel sagittis vel, vehicula non quam. Nunc mattis bibendum massa vel volutpat. Duis ligula ante, elementum luctus felis ut, ultricies aliquam dolor. Nunc et est mattis, fermentum nisl et, volutpat lacus. Nam ullamcorper urna non odio luctus volutpat. Praesent efficitur in risus at porttitor.</p>
+								        </div>
+								         <div class='moreText newBtns accentback add'>></div>
+								      </div>
+								    </section>
+								    <section class="band band-c taber primaryLowback">
+								      <div class="band-container">
+								        <div class="band-inner">
+								          <h1 class="secondTitle">Sed consectetur neque</h1>
+								          <p class="secondDesc">Sed consectetur neque et libero placerat, dapibus laoreet sem condimentum. Nunc suscipit pharetra nunc ac interdum. Quisque justo magna, porttitor quis bibendum eu, ultrices nec justo. Cras mattis ut lectus at ullamcorper. Mauris vestibulum est sed sapien euismod, a pretium arcu lacinia. Donec pharetra non massa ac rhoncus. In in magna felis. Ut porta nec nunc a condimentum. Nullam ultricies sollicitudin enim ac scelerisque. Nam porta, leo in euismod suscipit, elit lorem eleifend neque, non hendrerit quam odio quis felis. Praesent id ullamcorper neque, in fermentum mauris. Curabitur sodales erat sed nisi dictum, sit amet vehicula eros malesuada.</p>
+								        </div>
+								        <div class='moreText newBtns accentback add'>></div>
+								      </div>
+								    </section>
+								  </div>
+								</div>
+							</li>
+							<li class="secondTab preview">
+								<ul class="secondTabUl">
+									<li class="parts mainbar primaryback">
+										<div class="status secondDesc primaryHighback">
+											12:30
+										</div>
+										<div class="mapButtons">
+											<div class="firstRow">
+												<div class="first1">
+													<div class="icon1">
+													</div>
+													<div class="srcText secondDesc">TNG</div>
+													<div class="icon2">
+													</div>
+												</div>
+												<div class="toText secondDesc">to</div>
+												<div class="first2">
+													<div class="icon1">
+													</div>
+													<div class="srcText secondDesc">BND</div>
+													<div class="icon2">
+													</div>
+												</div>
+											</div>
+											<div class="secondRow">
+												<div class="first3">
+													<div class="icon1">
+													</div>
+													<div class="srcText secondDesc">13 December 2018</div>
+													<div class="icon2">
+													</div>
+												</div>
+											</div>
+											<div class="thirdRow">
+												<div class="signInBtn">
+													<button class="rounded secondTitle newBtns accentback">Search</button>
+												</div>
+											</div>
+										</div>
+										<div class="mapImage">
+											
+										</div>
+									</li>
+									<li class="parts mainbar primaryback">
+										<div class="status secondDesc primaryHighback">
+											12:30
+										</div>
+										<div class="parentClass">
+											<div class="loginClass">
+												<input class="uName titleV secondDesc primaryback" type="text" value="Username"> 
+												<input class="uPass titleV secondDesc primaryback" type="text" value="Password">
+												<button class="logninBtn secondTitle newBtns accentback" >Login</button>
+												<span class="forgotClass secondDesc">Forgot Password?</span>
+											</div>
+											<div class="footerClass1 taber primaryLowback">
+												<div class="parentText">Dont have an account?
+													<span class="regHere secondDesc">Register here</span>
+												</div>
+											</div>	
+										</div>
+										
+									</li>
+									<li class="parts mainbar primaryback">
+										<div class="status primaryHighback">
+											12:30
+										</div>
+										<div class="profileClass">
+											<div class="backBlend">
+												<img src="./img/avtar.jpeg"/>
+											</div>
+											<div class="divSlant"></div>
+											<div class="profileAvtar">
+												<img src="./img/avtar.jpeg"/>
+											</div>
+											<div class="badge newBadge">
+											</div>
+										</div>
+										<div class="contactClass">
+											<div class="iconImg newBadge">
+											</div>
+											<div class="dpInfo">
+												<span class="dpName secondTitle">Adaline Maria Smith</span>
+												<span class="dpNum secondDesc">•••••17385</span>
+											</div>
+											<div class="wallet">
+												<div class="walletDiv newWallet">
+													<span class="walletText secondDesc">Wallet Ativada</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="parts mainbar padBox primaryback">
+										<div class="status secondDesc primaryHighback">
+											12:30
+										</div>
+										<div class="padBox3">
+											<label class="title first secondTitle " contenteditable="true">Title</label> <input class="titleV secondTitle primaryback"  type="text" value="Indeed Sublime"> <input class="desc secondDesc "  type="text" value="Description"> <button class="add accentback" value="+">+</button>
+										</div>
+									</li>
+									<li class="parts mainbar primaryback">
+										<div class="status secondDesc primaryHighback">
+											12:30
+										</div>
+										<header class="secondTitle " contenteditable="true">
+										Title here. <button class="square secondDesc" contenteditable="true">Edit</button>
+										</header>
+										<p class="padBox2 padBox secondDesc " contenteditable="true">Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.</p>
+										<div class="taber taber1 primaryLowback">
+											<span class="active1 secondDesc" contenteditable="true">Tab1</span>
+											<span class="secondDesc" contenteditable="true">Tab2</span>
+											<span class="secondDesc" contenteditable="true">Tab3</span>
+										</div>
+									</li>
+									<li class="parts mainbar primaryback">
+										<div class="status secondDesc primaryHighback">
+											12:30
+										</div>
+										<div class="tinderBox">
+											<div class="tinder">
+												<div class="titles">
+													&nbsp;
+												</div>
+												<section>
+													<svg></svg>
+												</section>
+											</div>
+											<div class="tinder">
+												<div class="titles secondTitle" contenteditable="true">
+													Title
+												</div>
+												<section>
+													<svg></svg>
+												</section>
+											</div>
+											<div class="tinder">
+												<div class="titles">
+													&nbsp;
+												</div>
+												<section>
+													<svg></svg>
+												</section>
+											</div>
+										</div>
+										<p class="padBox1 secondDesc" contenteditable="true">Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.</p>
+									</li>
+								</ul>
+							</li>
+							
+						</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div><!-- /.container -->
 	<div class="container-fluid">

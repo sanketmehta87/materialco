@@ -9,10 +9,36 @@
 @accentTint: #FF669A;
 @accentShade: #E73677;
 
+@primaryFont:'Titillium Web';
+@secondaryFont:'Titillium Web';
+
+@tab-color:luminance(@primaryLow);
+
+.taber span.active1{
+    border-top: 3px solid @accentLow;
+}
+.primaryLowback{
+    color: if((luminance(@primaryLow) > 40%), black, white) !important;
+}
+.primaryHighback{
+    color: if((luminance(@primaryHigh) > 40%), black, white) !important;
+}
+.primaryback{
+    color: if((luminance(@primary) > 40%), black, white) !important;
+}
+.accentback{
+    color: if((luminance(@accent) > 40%), black, white) !important;
+}
 .preview .status{
     background: @primaryHigh;
 }
+.band.status{
+    background: @primaryHigh;
+}
 .preview .mainbar{
+    background: @primary;   
+}
+.band.mainbar{
     background: @primary;   
 }
 .preview .title{
@@ -32,10 +58,18 @@
     color: white;
     box-shadow: 0px 1px 0px @accentTint inset, 0px -1px 0px @accentShade inset, 0px 0px 5px rgba(0,0,0,0.5);
 }
+.moreText.add{
+    background:@accent;
+    color: white;
+    box-shadow: 0px 1px 0px @accentTint inset, 0px -1px 0px @accentShade inset, 0px 0px 5px rgba(0,0,0,0.5);
+}
 .preview header{
     background: @primaryHigh;
 }
 .preview .taber{
+    background:@primaryLow;
+}
+.band.taber{
     background:@primaryLow;
 }
 .preview tab{
@@ -56,4 +90,59 @@
 }
 .preview header button{
     background-color: @accent;
+}
+.preview .newBtns{
+    background-color : @accent;
+}
+.moreText.newBtns{
+    background-color : @accent;
+}
+.preview .newBtns{
+    color : if((luminance(@accent) > 40%), black, white);
+}
+.preview .newWallet{
+    border-color:@accent;
+}
+.titleSec{
+    font-family :@primaryFont;
+}
+.descriptionSec{
+    font-family :@secondaryFont;
+}
+.secondTitle{
+    font-family :@primaryFont !important;
+}
+.secondDesc{
+    font-family :@secondaryFont !important;
+}
+.profileClass .newBadge{
+    background-color:  @accentLow;
+}
+.newBadge{
+    background-color:  @accentLow;
+}
+.backBlend:after{
+    background:  @accentLow;
+}
+.dropPriText{
+    font-family :@primaryFont !important
+}
+.dropSecText{
+    font-family :@secondaryFont !important
+}
+.primaryGlif{
+    font-family :@primaryFont ;
+}
+.secondaryGlif{
+    font-family :@secondaryFont;
+}
+.fourthTab .c-header{
+    background-color : @primary;
+    color: if((luminance(@primary) > 40%), black, white);
+}
+.fourthTab .c-btn:before{
+    background: @accent;
+}
+.fourthTab .c-btn:hover{
+    color: if((luminance(@accent) > 40%), black, white);
 }
