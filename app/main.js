@@ -228,7 +228,7 @@ define(function (require) {
 	
 	
 	function loadClient() {
-		var apiKey="AIzaSyAnJQ7taZsJbPRnGKEH06ub-ObCg-RlQ7Y";
+		var apiKey="AIzaSyCygAU0S8DTlUWDMExRS0jl7JVceufdf1A";
 	    gapi.client.setApiKey(apiKey);
 	    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/webfonts/v1/rest")
 	        .then(function() { console.log("GAPI client loaded for API"); 
