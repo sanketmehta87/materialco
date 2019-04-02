@@ -182,7 +182,9 @@ define(function (require) {
 	$(".menu a,.menuMobile a,.codeBtn a").on(myclick,function(){
 		$(".modelBack").show();
 		var tid= $(this).attr("data-model");
-
+		//var tid="";
+		console.log(tid)
+		console.log($(".model#"+tid))
 		$(".model#"+tid).show();
 		if($(".nav i").is(":visible")){
 			$(".nav ul.menuMobile").slideUp();
@@ -357,7 +359,12 @@ function downloadFonts(Arr){
 
 }
 var activeIndex=0;
+function googleFont(){
+	document.querySelector('.container-fluid.content').classList.remove('googleFonts')
+	
+}
 function downFonts(firstLoad){
+	document.querySelector('.container-fluid.content').classList.add('googleFonts')
 	if(firstLoad){
 		$('.sliderFont').unslider();
 	}
