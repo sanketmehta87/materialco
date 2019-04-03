@@ -332,6 +332,8 @@ function loadExtraFonts(){
 	for(var i=0;i<10;i++){
 		firstFontName.push(fontNameArray[i]);
 	}
+	console.log(222,firstFontName)
+	downloadFonts(firstFontName)
 	for(var i=10;i<fontNameArray.length;i=i){
 		var temp=[];
 		for(var j=0;j<25;j++){
@@ -341,9 +343,8 @@ function loadExtraFonts(){
 		}
 		secondFontArray.push(temp);
 	}
+	console.log(secondFontArray)
 	progress=progress+10;
-	console.log(firstFontName);
-	downloadFonts(firstFontName);
 }
 
 function downloadFonts(Arr){
@@ -369,16 +370,25 @@ function downFonts(firstLoad){
 	if(firstLoad){
 		$('.sliderFont').unslider();
 	}
-	
-	for(var i=0;i<9;i++){
-		setTimeout(function(){
-			console.log(secondFontArray,activeIndex)
-			downloadFonts(secondFontArray[activeIndex]);
-			activeIndex++;
-		},100)
-		
-		
+	document.que
+	let checkFonts=function(){
+ 		document.querySelector('.spinnerParent1').style.display="block";
+ 		document.querySelector('.spinnerParent').style.display="block"
+        if(secondFontArray.length>0){
+			clearInterval(myTimer);
+			console.log(1);
+			document.querySelector('.spinnerParent1').style.display="none";
+ 			document.querySelector('.spinnerParent').style.display="none"
+			for(var i=0;i<9;i++){
+				setTimeout(function(){
+					downloadFonts(secondFontArray[activeIndex]);
+					activeIndex++;
+				},100)	
+			}
+        }
 	}
+	var myTimer=setInterval(checkFonts,30);
+	
 }
 var checkedArray=[];
 function doalert(id){

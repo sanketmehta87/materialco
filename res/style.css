@@ -198,10 +198,13 @@ ul.sub-cont li span{
     
 }
 .preview .mainbar{
-    height: 35%;
+    height: 36vh;
     box-shadow: 0 2px 5px rgba(0,0,0,0.22);
     position: relative;
     overflow: visible;
+}
+.preview .mainbar.mixerPage{
+    height: 28vh;
 }
 .preview .title{
     display: block;
