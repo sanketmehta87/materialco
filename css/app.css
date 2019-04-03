@@ -1,6 +1,6 @@
 .content{
 	margin-top:45px;
-    height: 100%;
+    height: calc(100% - 45px);
 }
 body {
     color: #ffffff;
@@ -284,7 +284,7 @@ li.dColAlone.active:before {
 .mainFonts {
     display: inline-flex;
     height: 100%;
-    width: 100%;
+    width: 101%;
 }
 .sectionLeft {
     display: block;
@@ -314,6 +314,7 @@ li.dColAlone.active:before {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     overflow-y: scroll;
     border-radius: 3px;
+    scrollbar-width: none;
 }
 .checkBoxParent .input-group.mb-3.checkBoxLeft {
     height: 30px;
@@ -334,6 +335,7 @@ li.dColAlone.active:before {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     overflow-y: scroll;
     border-radius: 3px;
+    scrollbar-width: none;
 }
 .fontName, .checkBoxParent >div {
     padding: 1.5%;
@@ -358,7 +360,7 @@ li.dColAlone.active:before {
     width: 80%;
     height: 100%;
     margin-left: 2px;
-    padding: 1%;
+    padding: 1% 0% 1% 1%;
     position: relative;
 }
 .mainSection {
@@ -450,6 +452,7 @@ html {
 }*/
 .sectionRight .unslider{
     height: 100%;
+    scrollbar-width:none;
 }
 .sectionRight .unslider-nav {
     display: none;
@@ -512,7 +515,7 @@ html {
     transition: all 0.3s;
 }
 ul.secondTabUl {
-    width: 100%;
+    width: 100.5%;
     display: flex;
     flex-wrap: wrap;
     height: 50%;

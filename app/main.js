@@ -246,6 +246,7 @@ define(function (require) {
 	                // Handle the results here (response.result has the parsed body).
 	                //console.log("Response", response);
 	                responseData=response;
+	                console.log(responseData)
 	                loadExtraFonts();
 	                fetchFontNames();
 	              },
@@ -341,7 +342,7 @@ function loadExtraFonts(){
 		secondFontArray.push(temp);
 	}
 	progress=progress+10;
-	
+	console.log(firstFontName);
 	downloadFonts(firstFontName);
 }
 
@@ -371,6 +372,7 @@ function downFonts(firstLoad){
 	
 	for(var i=0;i<9;i++){
 		setTimeout(function(){
+			console.log(secondFontArray,activeIndex)
 			downloadFonts(secondFontArray[activeIndex]);
 			activeIndex++;
 		},100)
@@ -471,6 +473,8 @@ var currentPrimaryFont="Titillium Web";
 function radioCallPrimary(eleId){
 	
 	currentPrimaryFont=eleId;
+	console.log(eleId)
+	downloadFonts([eleId]);
 	less.modifyVars({
 			  '@primaryFont': currentPrimaryFont, 
 			  '@secondaryFont': currentSecondaryFont,
@@ -487,6 +491,7 @@ function radioCallPrimary(eleId){
 function radioCallSecondary(eleId){
 	
 	currentSecondaryFont=eleId;
+	downloadFonts([eleId]);
 	less.modifyVars({
 			  '@primaryFont': currentPrimaryFont,  
 			  '@secondaryFont': currentSecondaryFont, 
@@ -545,7 +550,6 @@ function displayFilters(){
 	
 }
 function displaySideMenu(){
-	//document.querySelector('.sectionLeft').style.marginLeft
 	if(!document.querySelector('.sectionLeft').classList.contains('hideMenu') &&
 		!document.querySelector('.sectionLeft').classList.contains('showMenu')){
 
