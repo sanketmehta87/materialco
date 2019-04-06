@@ -103,7 +103,7 @@ define(function (require) {
 			window.priHigh = priHigh.toCSS();
 
 			var hash = window.primary?window.primary+"/"+ (window.accent?window.accent.split("#")[1]:""):"";
-			console.log(hash);
+			// console.log(hash);
 			if(hash)
 				location.hash = hash;
 
@@ -114,7 +114,9 @@ define(function (require) {
 			  '@accent': window.accent?window.accent:"#fff",
 			  '@accentLow': window.accentLow,
 			  '@accentTint': window.accenttint,
-			  '@accentShade': window.accentshade
+			  '@accentShade': window.accentshade,
+			  '@primaryFont': currentPrimaryFont, 
+			  '@secondaryFont': currentSecondaryFont,
 			});
 
 			if(eventCounterGA>2  && typeof ga!="undefined")
@@ -139,7 +141,7 @@ define(function (require) {
 			window.accentshade = shadecolor;
 
 			var hash = window.primary?window.primary+"/"+ (window.accent?window.accent.split("#")[1]:""):"";
-			console.log(hash);
+			//console.log(hash);
 			if(hash)
 				location.hash = hash;
 
@@ -150,7 +152,9 @@ define(function (require) {
 			  '@accent': maincolor,
 			  '@accentLow': accentLow,
 			  '@accentTint': window.accenttint,
-			  '@accentShade': window.accentshade
+			  '@accentShade': window.accentshade,
+			  '@primaryFont': currentPrimaryFont, 
+			  '@secondaryFont': currentSecondaryFont,
 			});
 			if(eventCounterGA>2  && typeof ga!="undefined")
 				ga('send', 'event', 'MaterialMix', 'Accent', window.primary+"|"+window.accent);
@@ -183,8 +187,8 @@ define(function (require) {
 		$(".modelBack").show();
 		var tid= $(this).attr("data-model");
 		//var tid="";
-		console.log(tid)
-		console.log($(".model#"+tid))
+		//console.log(tid)
+		//console.log($(".model#"+tid))
 		$(".model#"+tid).show();
 		if($(".nav i").is(":visible")){
 			$(".nav ul.menuMobile").slideUp();
@@ -234,8 +238,7 @@ define(function (require) {
 	        .then(function() { console.log("GAPI client loaded for API"); 
 	    					 execute();
 	    					},
-	              function(err) { console.error("Error loading GAPI client for API", err); });
-
+	            function(err) { console.error("Error loading GAPI client for API", err); });
 	  }
 	  // Make sure the client is loaded before calling this method.
 	  function execute() {
@@ -246,7 +249,7 @@ define(function (require) {
 	                // Handle the results here (response.result has the parsed body).
 	                //console.log("Response", response);
 	                responseData=response;
-	                console.log(responseData)
+	                //console.log(responseData)
 	                loadExtraFonts();
 	                fetchFontNames();
 	              },
@@ -324,15 +327,17 @@ var fontNameArray=[];
 var firstFontName=[];
 var secondFontArray=[];
 var progress=0;
+var currentSecondaryFont="Titillium Web";
+var currentPrimaryFont="Titillium Web";
 function loadExtraFonts(){
 	responseData.result.items.forEach(function(alone){
 		fontNameArray.push(alone.family)
 	});
 
 	for(var i=0;i<10;i++){
-		firstFontName.push(fontNameArray[i]);
+			firstFontName.push(fontNameArray[i]);
 	}
-	console.log(222,firstFontName)
+	//console.log(222,firstFontName);
 	downloadFonts(firstFontName)
 	for(var i=10;i<fontNameArray.length;i=i){
 		var temp=[];
@@ -343,58 +348,76 @@ function loadExtraFonts(){
 		}
 		secondFontArray.push(temp);
 	}
-	console.log(secondFontArray)
+	//console.log(secondFontArray)
 	progress=progress+10;
-}
 
+}
 function downloadFonts(Arr){
-	console.log(Arr);
+	//console.log(Arr);
 	WebFont.load({
     google: {
       families: Arr
     },
     classes: false
-    // fontactive: function(familyName, fvd) {
-    // 	console.log(familyName)
-    // },
   });
 
 }
 var activeIndex=0;
-function googleFont(){
+function googleFont(tabName){
 	document.querySelector('.container-fluid.content').classList.remove('googleFonts')
+	if(typeof ga!="undefined")
+		ga('send', 'event', 'MaterialMix', 'Tabs', tabName);
 	
 }
+var gFontSlider;
+var gFontTabCount=0;
 function downFonts(firstLoad){
 	document.querySelector('.container-fluid.content').classList.add('googleFonts')
 	if(firstLoad){
-		$('.sliderFont').unslider();
+		if(typeof ga!="undefined")
+			ga('send', 'event', 'MaterialMix', 'Tabs', 'gFont-tab');
+		if(gFontTabCount==0){
+			gFontSlider=$('.sliderFont').unslider();
+			gFontSlider.on('unslider.change', function(event, index, slide) {
+	           	if(typeof ga!="undefined")
+	               ga('send', 'event', 'MaterialMix', 'gFont-Slide', index);
+	       });
+			gFontTabCount++;
+		}
 	}
-	document.que
+
+	
 	let checkFonts=function(){
+
  		document.querySelector('.spinnerParent1').style.display="block";
- 		document.querySelector('.spinnerParent').style.display="block"
+ 		document.querySelector('.spinnerParent').style.display="block";
+ 		
         if(secondFontArray.length>0){
 			clearInterval(myTimer);
-			console.log(1);
 			document.querySelector('.spinnerParent1').style.display="none";
  			document.querySelector('.spinnerParent').style.display="none"
 			for(var i=0;i<9;i++){
+				document.querySelector('.dropPriText').innerText=currentPrimaryFont;
+				document.querySelector('.dropSecText').innerText=currentSecondaryFont;
+				document.querySelector('.priTitle').children[0].innerText=currentPrimaryFont;
+				document.querySelector('.secTitle').children[0].innerText=currentSecondaryFont;
+				document.querySelector('.currentPfont').innerHTML=currentPrimaryFont;
+				document.querySelector('.currentSfont').innerHTML=currentSecondaryFont;
 				setTimeout(function(){
-					downloadFonts(secondFontArray[activeIndex]);
+					if(secondFontArray[activeIndex]!=undefined)
+						downloadFonts(secondFontArray[activeIndex]);
 					activeIndex++;
 				},100)	
 			}
         }
 	}
 	var myTimer=setInterval(checkFonts,30);
-	
 }
 var checkedArray=[];
 function doalert(id){
 	var tempId;
-	console.log(id);
-	document.querySelector('.FilterName').innerHTML=id;
+	//console.log(id);
+	
 	var finalString='';
 	var appendString1='<div class="fontName"><div class="custom-control custom-radio"><input class="custom-control-input" onchange="radioCallPrimary(this.id.split(\'-\')[1])" type="radio" name="customRadio123" id="customIdRadio1-';
 	var appendString2='" value="option1"><label class="custom-control-label" style="font-family:\''
@@ -402,6 +425,8 @@ function doalert(id){
 	var appendString4='">';
 	var appendString5='</label></div></div>'
 	if(document.getElementById(id).checked){
+		if(typeof ga!="undefined")
+	    	ga('send', 'event', 'MaterialMix', 'gFont-filter', id);
 		checkedArray.push(id);
 		checkedArray.forEach(function(aln){
 			responseData.result.items.forEach(function(alone){
@@ -410,9 +435,10 @@ function doalert(id){
 				}
 			})
 		})
+		document.querySelector('.currentPfont').innerHTML="";
+		document.querySelector('.currentSfont').innerHTML="";
 		document.querySelector(".fontsParent1").innerHTML="";
 		document.querySelector(".fontsParent2").innerHTML="";
-		
 		document.querySelector(".fontsParent1").innerHTML=finalString;
 		var t1 = finalString.replace(/customRadio123/g,"customRadio234");
 		t1 = t1.replace(/customIdRadio1/g,"customIdRadio2");
@@ -456,7 +482,7 @@ function scrollCall(ele){
 			//second 9
 			activeIndex = 9;
 			progress=progress+(25*9);
-			console.log("second 9",sTopPercentage,progress)
+			//console.log("second 9",sTopPercentage,progress)
 			downFonts();
 		}
 	}else if(sTopPercentage<=65 && sTopPercentage>50){
@@ -464,7 +490,7 @@ function scrollCall(ele){
 			//third 9
 			activeIndex = 18;
 			progress=progress+(25*9);
-			console.log("third 9",sTopPercentage)
+			//console.log("third 9",sTopPercentage)
 			downFonts();
 		}
 	}else if(sTopPercentage<=100 && sTopPercentage>65){
@@ -473,18 +499,19 @@ function scrollCall(ele){
 			console.log("last 9",sTopPercentage,progress)
 			activeIndex = 27;
 			progress=progress+(25*9);
-			console.log("last 9",sTopPercentage)
+			//console.log("last 9",sTopPercentage)
 			downFonts();
 		}
 	}
 }
-var currentSecondaryFont="Titillium Web";
-var currentPrimaryFont="Titillium Web";
 function radioCallPrimary(eleId){
 	
 	currentPrimaryFont=eleId;
-	console.log(eleId)
+	document.querySelector('.dropPriText').innerText=currentPrimaryFont;
+	document.querySelector('.priTitle').children[0].innerText=currentPrimaryFont
 	downloadFonts([eleId]);
+	if(typeof ga!="undefined")
+		ga('send', 'event', 'MaterialMix', 'gFont-primaryFont', currentPrimaryFont);
 	less.modifyVars({
 			  '@primaryFont': currentPrimaryFont, 
 			  '@secondaryFont': currentSecondaryFont,
@@ -501,6 +528,11 @@ function radioCallPrimary(eleId){
 function radioCallSecondary(eleId){
 	
 	currentSecondaryFont=eleId;
+	document.querySelector('.dropSecText').innerText=currentSecondaryFont;
+	document.querySelector('.secTitle').children[0].innerText=currentSecondaryFont
+	if(typeof ga!="undefined")
+		ga('send', 'event', 'MaterialMix', 'gFont-primaryFont', currentSecondaryFont);
+	//console.log(22,eleId)
 	downloadFonts([eleId]);
 	less.modifyVars({
 			  '@primaryFont': currentPrimaryFont,  
