@@ -1751,3 +1751,7 @@ section .part2 {
     line-height: 110%;
     border-radius: 0.3vw;
 }
+.container-fld {
+    width: 100%;
+    min-height: 164px;
+}
