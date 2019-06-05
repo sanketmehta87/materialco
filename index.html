@@ -645,7 +645,6 @@
 
 	</script>
 	<div class="container-fld">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- materialmixer.co -->
 		<ins class="adsbygoogle"
 		     style="display:block"
@@ -657,5 +656,19 @@
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	</div>
+	<!--noptimize-->
+	<script type="text/javascript">
+	function downloadJSAtOnload() {
+	var element = document.createElement("script");
+	element.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+	document.body.appendChild(element);
+	}
+	if (window.addEventListener)
+	window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent)
+	window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+	</script>
+	<!--/noptimize-->
 </body>
 </html>
